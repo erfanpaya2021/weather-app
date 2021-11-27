@@ -1,0 +1,131 @@
+@import url("https://cdn.fontcdn.ir/Font/Persian/Yekan/Yekan.css");
+
+/* Variables */
+:root {
+  --darkerPrimaryColor: #0a4bad;
+  --primaryColor: #6d28d9;
+  --secondaryColor: #ede9fe;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGrey: #7c7c7c;
+  --bodyColor: #fafafa;
+  --mainShadow: #aeaeae;
+  --maxWidth: 400px;
+}
+
+/* Base Style */
+* {
+  box-sizing: border-box;
+  font-family: "Yekan", sans-serif;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-size: 10px;
+}
+
+body {
+  background: var(--bodyColor);
+  color: var(--mainBlack);
+}
+
+/* weather app */
+.weather-app__wrapper {
+  max-width: var(--maxWidth);
+  padding: 2rem;
+  margin: 6rem auto 0;
+}
+
+.weather-app__title {
+  font-size: 3rem;
+  text-align: center;
+  border-bottom: 2px solid var(--mainGrey);
+  padding: 1rem 0;
+  margin: 0 0 3rem;
+}
+
+.weather-app__form {
+  display: flex;
+  /* width: 80%; */
+  box-shadow: 0 0 1rem var(--mainShadow);
+}
+
+.weather-app__form:focus-within {
+  box-shadow: 0 0 0.5rem var(--primaryColor);
+}
+
+.weather-app__form input,
+.weather-app__form button {
+  flex: 1;
+  font-size: 1.4rem;
+  background-color: var(--mainWhite);
+  outline: 0;
+  border: 0;
+  padding: 1rem;
+}
+
+.weather-app__form button {
+  background-color: var(--primaryColor);
+  color: var(--mainWhite);
+  flex: 0;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+}
+
+.weather-app__cart {
+  margin-top: 3rem;
+  background-color: var(--mainWhite);
+  box-shadow: 0 0 0.5rem var(--mainShadow);
+}
+
+.weather-app__icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 22rem;
+  font-size: 6rem;
+}
+
+.weather-app__icon p {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+}
+
+.weather-app__desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--mainWhite);
+  color: var(--darkerPrimaryColor);
+  height: 10rem;
+  padding: 2rem;
+}
+
+.weather-app__city-name {
+  font-size: 3rem;
+}
+
+.weather-app__city-temp {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.t1 {
+  background: #70ff8f;
+}
+.t2 {
+  background: #63f89c;
+}
+.t3 {
+  background: #3dffff;
+}
+.t4 {
+  background: #cdff5a;
+}
+.t5 {
+  background: #ffc037;
+}

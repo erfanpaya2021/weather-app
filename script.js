@@ -1,14 +1,56 @@
-const url = `http://developers.parsijoo.ir/web-service/v1/weather/?type=search&city=تهران`
+const cart = document.querySelector(".weather-app__cart");
+const form = document.querySelector(".weather-app__form");
 
-async function init() {
-  const respone = await fetch(url,{
-    "headers": {
-      "api-key": "e3ca1a3da75d464c8d2012eee32fa6c1"
+async function app(city) {
+  const respone = await fetch(
+    `https://developers.parsijoo.ir/web-service/v1/weather/?type=search&city=${city}`,
+    {
+      headers: {
+        "api-key": "b31d3a712d444573a798e4fe288094ac",
+      },
     },
-  })
-  const data = await respone.json()
-  const result = data.result.hava.summary.temp
-  console.log(result);
+  );
+  const data = await respone.json();
+  const cityName = data.result.hava.city;
+  const cityTemp = data.result.hava.summary.temp;
+  const cityCondition = data.result.hava.dayList[0].condition;
+  const tempSymbol = data.result.hava.dayList[0].symbol;
+  let tempSymbolColor;
+  switch (cityCondition) {
+    case "آرام":
+      tempSymbolColor = "t1";
+      break;
+    case "نسیم":
+      tempSymbolColor = "t2";
+      break;
+    case "باد ملایم":
+      tempSymbolColor = "t3";
+      break;
+    case "باد شدید":
+      tempSymbolColor = "t4";
+      break;
+    case "طوفانی":
+      tempSymbolColor = "t5";
+      break;
+
+    default:
+      tempSymbolColor = "t1";
+      break;
+  }
+
+  cart.innerHTML = `
+    <div class="weather-app__icon ${tempSymbolColor}">
+    <div><i class="wi ${tempSymbol}"></i></div>
+    <p>${cityCondition}</p>
+  </div>
+  <div class="weather-app__desc">
+    <h2 class="weather-app__city-name">${cityName}</h2>
+    <p class="weather-app__city-temp">&#8451; ${cityTemp}</p>
+  </div>
+  `;
 }
 
-init()
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  app(e.target.city.value);
+});
