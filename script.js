@@ -6,7 +6,7 @@ async function app(city) {
     `https://developers.parsijoo.ir/web-service/v1/weather/?type=search&city=${city}`,
     {
       headers: {
-        "api-key": "b31d3a712d444573a798e4fe288094ac",
+        "api-key": "3665f90e08424db2adbe8119287901ef",
       },
     },
   );
